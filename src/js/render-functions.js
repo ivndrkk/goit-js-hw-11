@@ -4,11 +4,11 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 let lightbox = null;
 
 export function renderGallery(images) {
-  const galleryContainer = document.querySelector('.gallery-container');
-  galleryContainer.innerHTML = ''; // Очищаем галерею перед рендерингом новых изображений
-  const imagesToDisplay = images.slice(0, 9); // Ограничиваем количество изображений до 9
+    const galleryContainer = document.querySelector('.gallery-container');
+    galleryContainer.innerHTML = '';
+    const imagesToDisplay = images.slice(0, 9);
 
-  imagesToDisplay.forEach(image => {
+    imagesToDisplay.forEach(image => {
     const li = document.createElement('li');
     li.classList.add('image-item');
 
@@ -39,15 +39,15 @@ export function renderGallery(images) {
         `;
 
     galleryContainer.appendChild(li);
-  });
-
-  if (!lightbox) {
-      lightbox = new SimpleLightbox('.gallery-container a', {
-          captions: true,
-          captionsData: 'alt',
-          captionDelay:2000,
     });
-  } else {
-    lightbox.refresh();
-  }
-}
+
+    if (!lightbox) {
+        lightbox = new SimpleLightbox('.gallery-container a', {
+            captions: true,
+            captionsData: 'alt',
+            captionDelay:2000,
+        });
+    } else {
+        lightbox.refresh();
+    }
+    }

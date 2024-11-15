@@ -8,6 +8,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const formInput = document.querySelector('#searchInput');
 const form = document.querySelector('.input-form');
+const loader = document.querySelector('.loader')
 
 function checkInput(event) {
     event.preventDefault();
@@ -30,6 +31,8 @@ function checkInput(event) {
     }
 
 function fetchImages(query) {
+    loader.style.display = 'block';
+
     const url = getBaseUrl(query);
 
     fetch(url)
@@ -59,7 +62,10 @@ function fetchImages(query) {
                 backgroundColor: '#ef4040',
                 messageColor: '#fafafb',
             });
-        });
+        })
+        .finally(() => { 
+            loader.style.display = 'none';
+        })
 }
 
 form.addEventListener('submit', checkInput);
