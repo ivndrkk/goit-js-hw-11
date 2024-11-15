@@ -115,6 +115,7 @@ ul{
     width: 100px;
     height: 100px;
     display: none;
+    top: 35%;
 }
 
 .loader:before,
