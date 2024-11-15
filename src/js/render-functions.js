@@ -5,7 +5,7 @@ let lightbox = null;
 
 export function renderGallery(images) {
     const galleryContainer = document.querySelector('.gallery-container');
-    galleryContainer.innerHTML = '';
+    
     const imagesToDisplay = images.slice(0, 9);
 
     imagesToDisplay.forEach(image => {

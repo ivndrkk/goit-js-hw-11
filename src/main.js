@@ -31,6 +31,7 @@ function checkInput(event) {
     }
 
 function fetchImages(query) {
+    galleryContainer.innerHTML = '';
     loader.style.display = 'block';
 
     const url = getBaseUrl(query);
