@@ -9,6 +9,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const formInput = document.querySelector('#searchInput');
 const form = document.querySelector('.input-form');
 const loader = document.querySelector('.loader')
+const galleryContainer = document.querySelector('.gallery-container');
 
 function checkInput(event) {
     event.preventDefault();
@@ -16,6 +17,7 @@ function checkInput(event) {
     const inputContent = formInput.value.trim();
 
     if (!inputContent) {
+        galleryContainer.innerHTML = '';
         iziToast.show({
         message: 'Field cannot be empty',
         position: 'topRight',
@@ -23,6 +25,7 @@ function checkInput(event) {
         messageColor: '#fafafb',
     });
         return false;
+
     } else {
         updateQuery(inputContent);
         fetchImages(inputContent);
@@ -44,6 +47,7 @@ function fetchImages(query) {
         })
         .then(data => {
             if (data.hits.length === 0) {
+                galleryContainer.innerHTML = '';
                 iziToast.show({
                     message:'Sorry, there are no images matching your search query. Please try again!',
                     position: 'topRight',
